@@ -2,32 +2,27 @@
 
 ## Overview
 
-This document describes the general setup used to build the Raspberry Pi
-personal cloud storage system.
+This document describes the general setup process used to turn a
+Raspberry Pi 4 into a personal storage server with an external HDD
+and private remote connectivity.
 
-The system consists of a Raspberry Pi 4, Raspberry Pi OS, an external
-2 TB HDD, and Tailscale for remote connectivity.
+The setup consists of four main stages:
 
-The original implementation is no longer available, so this document
-focuses on the setup process and configuration approach rather than
-providing a copy-paste deployment script.
+1. Prepare the Raspberry Pi
+2. Connect and configure external storage
+3. Configure network connectivity
+4. Enable remote administration and access
 
-## Hardware Requirements
+---
 
-| Component | Purpose |
-|---|---|
-| Raspberry Pi 4 | Main server |
-| 2 TB External HDD | Primary storage |
-| Raspberry Pi Power Supply | Power |
-| Network Connection | Network access |
-| USB 3.0 Connection | HDD connection |
+## 1. Raspberry Pi Setup
 
-## 1. Prepare the Raspberry Pi
+The Raspberry Pi runs Raspberry Pi OS and acts as the central server.
 
-Install Raspberry Pi OS on the Raspberry Pi and connect it to the
-network.
+After installing the operating system, the initial setup should include
+updating the system packages and confirming that the device is
+connected to the network.
 
-After starting the system, update the installed packages:
-
+```bash
 sudo apt update
 sudo apt upgrade

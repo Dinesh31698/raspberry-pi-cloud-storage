@@ -2,24 +2,25 @@
 
 ## Overview
 
-Remote access to the Raspberry Pi is handled through Tailscale.
+Networking is responsible for connecting the Raspberry Pi to client
+devices and providing remote access to the storage system.
 
-The main reason for using Tailscale was to avoid exposing the Raspberry
-Pi directly to the public internet. Devices that are part of the same
-Tailscale network can communicate with the Pi using its private
-Tailscale address.
+The system uses the local network for normal connectivity and Tailscale
+as the private networking layer for remote access.
 
-The network setup is:
+## Network Architecture
 
-Laptop / Phone
-      │
-      │
-      ▼
- Tailscale Network
-      │
-      ▼
-Raspberry Pi 4
-      │
-      ├── SSH
-      │
-      └── Storage
+```text
+                 ┌─────────────────┐
+                 │ Laptop / Phone  │
+                 └────────┬────────┘
+                          │
+                          │
+                   Tailscale Network
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │  Raspberry Pi 4 │
+                 │                 │
+                 │  Linux Server   │
+                 └─────────────────┘

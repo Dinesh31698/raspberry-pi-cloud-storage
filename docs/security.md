@@ -2,29 +2,29 @@
 
 ## Overview
 
-Security was considered mainly around two areas of the system:
+Security is an important consideration for any self-hosted storage
+system because the server provides access to personal data.
 
-1. Remote access to the Raspberry Pi
-2. Protection of the data stored on the external HDD
+This project uses a private networking approach with Tailscale and
+SSH for remote administration. However, private networking is only
+one part of the security model. The operating system, user accounts,
+permissions, services, storage, and backup strategy must also be
+managed correctly.
 
-The system uses Tailscale for private remote connectivity and SSH for
-remote administration.
-
-This is a personal self-hosted setup, so it does not provide the same
-security controls or redundancy as a managed cloud-storage platform.
+---
 
 ## Network Security
 
-The Raspberry Pi is not intended to be directly exposed to the public
-internet.
+The system uses Tailscale for remote connectivity instead of relying
+on direct public exposure of the Raspberry Pi.
 
-Tailscale provides the private network used to connect authorized
-devices to the Raspberry Pi.
+The basic model is:
 
+```text
 Client Device
       │
       ▼
-Tailscale Network
+Private Tailscale Network
       │
       ▼
 Raspberry Pi

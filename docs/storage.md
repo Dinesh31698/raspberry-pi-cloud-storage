@@ -1,23 +1,24 @@
-# Storage
+# Storage Management
 
 ## Overview
 
-The storage layer is built around a 2 TB external HDD connected directly
-to the Raspberry Pi 4.
+The storage layer is built around a 2 TB external HDD connected to the
+Raspberry Pi through USB 3.0.
 
-The Raspberry Pi handles the operating system and server-side
-operations, while the external HDD provides the main capacity for
-stored data.
+The external drive provides the primary location for personal files,
+documents, media, and other stored data.
 
-Raspberry Pi 4
-      │
-      │ USB 3.0
-      ▼
-  2 TB External HDD
-      │
-      ▼
-  Mounted Storage
-      │
-      ├── Documents
-      ├── Media
-      └── Personal Files
+## Storage Architecture
+
+```text
+                    Raspberry Pi 4
+                          │
+                          │ USB 3.0
+                          ▼
+                   ┌──────────────┐
+                   │    2 TB HDD  │
+                   └──────┬───────┘
+                          │
+             ┌────────────┼────────────┐
+             ▼            ▼            ▼
+          Documents     Media      Personal Files
